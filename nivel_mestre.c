@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
     // Declaração de variáveis para a Carta 1
@@ -39,18 +38,12 @@ int main() {
     printf("=== Cadastro da Carta 1 ===\n");
     printf("Estado (A-H): ");
     scanf(" %c", &estado1);
-    // while (getchar() != '\n');  // Limpa o buffer completamente
 
     printf("Codigo da Carta (ex: A01): ");
     scanf("%s", codigo1);
-    while (getchar() != '\n');  // Limpa o buffer após o scanf do código
 
     printf("Nome da Cidade: ");
-    fgets(nomeCidade1, sizeof(nomeCidade1), stdin);
-    // Remove o \n do final se existir
-    if (nomeCidade1[strlen(nomeCidade1) - 1] == '\n') {
-        nomeCidade1[strlen(nomeCidade1) - 1] = '\0';
-    }
+    scanf("%s", nomeCidade1);
 
     printf("Populacao: ");
     scanf("%lu", &populacao1);
@@ -73,18 +66,12 @@ int main() {
     printf("\n=== Cadastro da Carta 2 ===\n");
     printf("Estado (A-H): ");
     scanf(" %c", &estado2);
-    while (getchar() != '\n');  // Limpa o buffer completamente
 
     printf("Codigo da Carta (ex: B02): ");
     scanf("%s", codigo2);
-    while (getchar() != '\n');  // Limpa o buffer após o scanf do código
 
     printf("Nome da Cidade: ");
-    fgets(nomeCidade2, sizeof(nomeCidade2), stdin);
-    // Remove o \n do final se existir
-    if (nomeCidade2[strlen(nomeCidade2) - 1] == '\n') {
-        nomeCidade2[strlen(nomeCidade2) - 1] = '\0';
-    }
+    scanf("%s", nomeCidade2);
 
     printf("Populacao: ");
     scanf("%lu", &populacao2);
@@ -104,13 +91,13 @@ int main() {
     superPoder2 = (float)populacao2 + area2 + pib2 + (float)pontosTuristicos2 + (1.0f / densidadePopulacional2) + pibPerCapita2;
 
     // Comparações (1 se Carta 1 vence, 0 se Carta 2 vence)
-    vencePopulacao = populacao1 > populacao2;
-    venceArea = area1 > area2;
-    vencePib = pib1 > pib2;
-    vencePontosTuristicos = pontosTuristicos1 > pontosTuristicos2;
-    venceDensidade = densidadePopulacional1 < densidadePopulacional2;  // Menor densidade vence
-    vencePibPerCapita = pibPerCapita1 > pibPerCapita2;
-    venceSuperPoder = superPoder1 > superPoder2;
+    vencePopulacao = (populacao1 > populacao2) ? 1 : 0;
+    venceArea = (area1 > area2) ? 1 : 0;
+    vencePib = (pib1 > pib2) ? 1 : 0;
+    vencePontosTuristicos = (pontosTuristicos1 > pontosTuristicos2) ? 1 : 0;
+    venceDensidade = (densidadePopulacional1 < densidadePopulacional2) ? 1 : 0;  // Menor densidade vence
+    vencePibPerCapita = (pibPerCapita1 > pibPerCapita2) ? 1 : 0;
+    venceSuperPoder = (superPoder1 > superPoder2) ? 1 : 0;
 
     // Exibição dos dados da Carta 1
     printf("\nCarta 1:\n");
@@ -139,14 +126,14 @@ int main() {
     printf("Super Poder: %.2f\n", superPoder2);
 
     // Exibição dos resultados da comparação
-    printf("\nComparacao de Cartas:\n");
-    printf("Populacao: Carta %d venceu (%d)\n", vencePopulacao ? 1 : 2, vencePopulacao);
-    printf("Area: Carta %d venceu (%d)\n", venceArea ? 1 : 2, venceArea);
-    printf("PIB: Carta %d venceu (%d)\n", vencePib ? 1 : 2, vencePib);
-    printf("Pontos Turisticos: Carta %d venceu (%d)\n", vencePontosTuristicos ? 1 : 2, vencePontosTuristicos);
-    printf("Densidade Populacional: Carta %d venceu (%d)\n", venceDensidade ? 1 : 2, venceDensidade);
-    printf("PIB per Capita: Carta %d venceu (%d)\n", vencePibPerCapita ? 1 : 2, vencePibPerCapita);
-    printf("Super Poder: Carta %d venceu (%d)\n", venceSuperPoder ? 1 : 2, venceSuperPoder);
+    printf("\n=== Resultado da Comparacao ===\n");
+    printf("Populacao: Carta %d vence\n", vencePopulacao ? 1 : 2);
+    printf("Area: Carta %d vence\n", venceArea ? 1 : 2);
+    printf("PIB: Carta %d vence\n", vencePib ? 1 : 2);
+    printf("Pontos Turisticos: Carta %d vence\n", vencePontosTuristicos ? 1 : 2);
+    printf("Densidade Populacional: Carta %d vence\n", venceDensidade ? 1 : 2);
+    printf("PIB per Capita: Carta %d vence\n", vencePibPerCapita ? 1 : 2);
+    printf("Super Poder: Carta %d vence\n", venceSuperPoder ? 1 : 2);
 
     return 0;
 }

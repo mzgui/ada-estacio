@@ -3,7 +3,7 @@
 
 int main() {
     // Declaração de variáveis para a Carta 1
-    char estado1;
+    char estado1[3];           // Ex: PR, SP (2 caracteres + '\0')
     char codigo1[4];           // Ex: A01 (3 caracteres + '\0')
     char nomeCidade1[50];
     unsigned long int populacao1;  // Mudança para unsigned long int
@@ -15,7 +15,7 @@ int main() {
     float superPoder1;
 
     // Declaração de variáveis para a Carta 2
-    char estado2;
+    char estado2[3];           // Ex: PR, SP (2 caracteres + '\0')
     char codigo2[4];           // Ex: B02 (3 caracteres + '\0')
     char nomeCidade2[50];
     unsigned long int populacao2;  // Mudança para unsigned long int
@@ -37,9 +37,9 @@ int main() {
 
     // Entrada de dados da Carta 1
     printf("=== Cadastro da Carta 1 ===\n");
-    printf("Estado (A-H): ");
-    scanf(" %c", &estado1);
-    // while (getchar() != '\n');  // Limpa o buffer completamente
+    printf("Estado (ex: PR, SP, RJ): ");
+    scanf("%s", estado1);
+    while (getchar() != '\n');  // Limpa o buffer após o estado
 
     printf("Codigo da Carta (ex: A01): ");
     scanf("%s", codigo1);
@@ -71,9 +71,9 @@ int main() {
 
     // Entrada de dados da Carta 2
     printf("\n=== Cadastro da Carta 2 ===\n");
-    printf("Estado (A-H): ");
-    scanf(" %c", &estado2);
-    while (getchar() != '\n');  // Limpa o buffer completamente
+    printf("Estado (ex: PR, SP, RJ): ");
+    scanf("%s", estado2);
+    while (getchar() != '\n');  // Limpa o buffer após o estado
 
     printf("Codigo da Carta (ex: B02): ");
     scanf("%s", codigo2);
@@ -114,7 +114,7 @@ int main() {
 
     // Exibição dos dados da Carta 1
     printf("\nCarta 1:\n");
-    printf("Estado: %c\n", estado1);
+    printf("Estado: %s\n", estado1);
     printf("Codigo: %s\n", codigo1);
     printf("Nome da Cidade: %s\n", nomeCidade1);
     printf("Populacao: %lu\n", populacao1);
@@ -127,7 +127,7 @@ int main() {
 
     // Exibição dos dados da Carta 2
     printf("\nCarta 2:\n");
-    printf("Estado: %c\n", estado2);
+    printf("Estado: %s\n", estado2);
     printf("Codigo: %s\n", codigo2);
     printf("Nome da Cidade: %s\n", nomeCidade2);
     printf("Populacao: %lu\n", populacao2);
@@ -136,7 +136,7 @@ int main() {
     printf("Numero de Pontos Turisticos: %d\n", pontosTuristicos2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional2);
     printf("PIB per Capita: %.6f bilhoes per capita\n", pibPerCapita2);
-    printf("Super Poder: %.2f\n", superPoder2);
+    printf("Super Trunfo: %.2f\n", superPoder2);
 
     // Exibição dos resultados da comparação
     printf("\nComparacao de Cartas:\n");
@@ -146,7 +146,7 @@ int main() {
     printf("Pontos Turisticos: Carta %d venceu (%d)\n", vencePontosTuristicos ? 1 : 2, vencePontosTuristicos);
     printf("Densidade Populacional: Carta %d venceu (%d)\n", venceDensidade ? 1 : 2, venceDensidade);
     printf("PIB per Capita: Carta %d venceu (%d)\n", vencePibPerCapita ? 1 : 2, vencePibPerCapita);
-    printf("Super Poder: Carta %d venceu (%d)\n", venceSuperPoder ? 1 : 2, venceSuperPoder);
+    printf("Super Trunfo: Carta %d venceu (%d)\n", venceSuperPoder ? 1 : 2, venceSuperPoder);
 
     return 0;
 }
