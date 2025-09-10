@@ -26,7 +26,7 @@ O **Nível Aventureiro** representa um salto significativo em complexidade, impl
 |----------|------|-------------------|---------|
 | **Nome do País** | `char[50]` | Identificação | "Brasil", "Argentina" |
 | **População** | `int` | ⬆️ Maior vence | 215.000.000 habitantes |
-| **Área** | `float` | ⬆️ Maior vence | 8.515.767 km² |
+| **Área** | `float` | ⬆️ Maior vence | 8.515.767 km² 
 | **PIB** | `float` | ⬆️ Maior vence | 2.608 bilhões de dólares |
 | **Pontos Turísticos** | `int` | ⬆️ Maior vence | 35 pontos |
 | **Densidade Demográfica** | `float` (calculada) | ⬇️ **MENOR vence** | 25.3 hab/km² |
@@ -261,57 +261,3 @@ if (jogarNovamente == 's') {
     goto menu_comparacao;  // Pula cadastro, vai direto ao menu
 }
 ```
-
-## 🎯 Características do Nível Aventureiro
-
-### ✅ **Avanços em Relação ao Nível Novato:**
-- **Interatividade**: Menu completo vs. comparação fixa
-- **Múltiplos Atributos**: 5 modalidades vs. 1 fixa
-- **Análise Complexa**: Estruturas aninhadas com 3+ níveis
-- **Regras Especiais**: Densidade com lógica invertida
-- **Interface Rica**: Visual atrativo com emojis e formatação
-- **Re-jogabilidade**: Sistema de continuar/reiniciar
-
-### 🏆 **Conceitos Avançados Implementados:**
-- **Switch-Case Complexo**: 6 casos com lógicas diferentes
-- **Aninhamento Profundo**: IF dentro de IF dentro de IF
-- **Validação Robusta**: Tratamento de múltiplos tipos de erro
-- **Controle de Fluxo**: Loops, breaks, e goto estratégico
-- **Formatação Visual**: Interface profissional no terminal
-
-## 🎓 Valor Educacional
-
-### 📚 **Habilidades Desenvolvidas:**
-- **Estruturas de Decisão**: Domínio completo de switch-case e if-else aninhados
-- **Lógica Complexa**: Implementação de regras específicas por contexto
-- **Interface de Usuário**: Criação de menus interativos atraentes
-- **Tratamento de Dados**: Validação e processamento robusto
-- **Controle de Programa**: Gerenciamento avançado de fluxo de execução
-
-### 🌟 **Aplicabilidade Profissional:**
-- **Sistemas de Menu**: Interfaces comuns em software comercial
-- **Lógica de Negócio**: Regras específicas por contexto
-- **Tratamento de Erro**: Validação robusta de entrada de usuário
-- **Comparação de Dados**: Algoritmos de ranking e classificação
-
-## 📊 Estatísticas do Código
-
-- **Linhas de Código**: 400+ linhas
-- **Estruturas Switch**: 1 principal com 6 casos
-- **Níveis de Aninhamento**: Até 4 níveis de profundidade
-- **Variáveis**: 15+ variáveis com tipos diversos
-- **Funções de I/O**: 50+ comandos printf com formatação avançada
-
----
-
-## 🏁 Conclusão
-
-O **Nível Aventureiro** representa um marco no aprendizado de programação em C, combinando:
-- 🎮 **Interatividade avançada** com menus dinâmicos
-- 🧠 **Lógica complexa** com estruturas aninhadas profundas
-- 🏆 **Sistema de batalhas** completo e envolvente
-- 🛡️ **Robustez** com tratamento de erros abrangente
-
-Este programa está pronto para **demonstração acadêmica** e showcases um domínio avançado dos fundamentos da programação estruturada em C!
-
-> 💡 **Preparado para o próximo nível?** O Nível Mestre aguarda com desafios ainda mais complexos!

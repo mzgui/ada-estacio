@@ -264,6 +264,6 @@ gcc jokenpo.c -o jokenpo
 gcc nivel_aventureiro.c -o nivel_aventureiro      # ⭐ NOVO!
 
 # WSL (Recomendado para Windows)
-wsl gcc nivel_aventureiro.c -o nivel_aventureiro  # ⭐ Programa Principal
+wsl gcc nivel_aventureiro.c -o nivel_aventureiro  
 wsl gcc estruturas_aninhadas.c -o estruturas_aninhadas
 ```
