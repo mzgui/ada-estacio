@@ -1,52 +1,482 @@
-# Super Trunfo d### 🚀 Executáveis Prontos
-- ✅ **Windows**: Arquivos `.exe` prontos para usar (sem necessidade de compilação)
-- 📁 **Código Fonte**: Arquivos `.c` disponíveis para estudo e modificação
-- 🔧 **Multiplataforma**: Código C compatível com Linux, macOS e Windows
+# Tema 2 - Variáveis, Tipos de Dados e Operadores em C
 
-## 📁 Estrutura do Projeto
+## Visão Geral do Tema
+
+Este tema aborda os **conceitos fundamentais** da linguagem C, estabelecendo as bases essenciais para programação estruturada. O conteúdo foca na compreensão e aplicação prática de variáveis, tipos de dados primitivos e operadores, preparando o estudante para temas mais avançados.
+
+## Objetivos de Aprendizagem
+
+### Objetivos Gerais
+- Compreender os tipos de dados primitivos da linguagem C
+- Dominar a declaração e inicialização de variáveis
+- Aplicar operadores aritméticos, relacionais e lógicos
+- Implementar entrada e saída de dados formatada
+- Desenvolver programas básicos com manipulação de dados
+
+### Objetivos Específicos
+- Utilizar corretamente os especificadores de formato (%d, %f, %c, %s)
+- Implementar cálculos matemáticos com diferentes tipos numéricos
+- Aplicar conversões de tipo quando necessário
+- Validar e formatar entrada de dados do usuário
+- Organizar código de forma clara e legível
+
+## Estrutura do Tema
+
+### Conceitos Fundamentais Abordados
+
+| Categoria | Elementos | Aplicação Prática |
+|-----------|-----------|-------------------|
+| **Tipos Primitivos** | int, float, double, char | Armazenamento adequado de dados |
+| **Modificadores** | signed, unsigned, long, short | Otimização de memória e precisão |
+| **Operadores** | Aritméticos, relacionais, lógicos | Cálculos e comparações |
+| **E/S Formatada** | printf(), scanf() | Interação com usuário |
+
+### Progressão de Complexidade
 
 ```
-Tema_2/
-├── 📄 README.md                 # Este arquivo de documentação
-├── 🚫 .gitignore               # Configuração do Git
-├── 💻 nivel_novato.c           # Código fonte - versão básica
-├── ⚙️ nivel_novato.exe         # Executável Windows - versão básica
-├── 💻 nivel_aventureiro.c      # Código fonte - versão intermediária
-├── ⚙️ nivel_aventureiro.exe    # Executável Windows - versão intermediária
-├── 💻 nivel_mestre.c           # Código fonte - versão avançada
-└── ⚙️ nivel_mestre.exe         # Executável Windows - versão avançada
+Declaração → Inicialização → Operações → Entrada/Saída → Aplicação Prática
 ```
 
-**📝 Nota**: Os executáveis `.exe` são específicos para Windows. Para outros sistemas operacionais, compile os arquivos `.c` usando GCC.idades 🏙️
+## Especificações Técnicas
 
-Este projeto implementa um jogo de cartas completo onde cidades brasileiras competem através de suas características econômicas, geográficas e turísticas.
+### Tipos de Dados Implementados
+- **int**: Números inteiros (32 bits)
+- **float**: Números decimais (precisão simples)
+- **double**: Números decimais (precisão dupla)
+- **char**: Caracteres individuais
+- **unsigned long**: Números inteiros grandes (populações)
 
-## 📋 Sobre o Projeto
+### Operadores Utilizados
+- **Aritméticos**: +, -, *, /, %
+- **Atribuição**: =, +=, -=, *=, /=
+- **Relacionais**: ==, !=, <, >, <=, >=
+- **Incremento/Decremento**: ++, --
 
-Este projeto implementa três versões do **Super Trunfo das Cidades** com diferentes níveis de complexidade:
+### Funções de E/S Padrão
+- **printf()**: Saída formatada de dados
+- **scanf()**: Entrada formatada de dados
+- **fgets()**: Entrada segura de strings
+- **getchar()**: Limpeza de buffer
 
-### 🎮 Versões Disponíveis
+## Implementação Prática
 
-| Arquivo | Executável | Nível | Características |
-|---------|------------|-------|-----------------|
-| `nivel_novato.c` | `nivel_novato.exe` | **Iniciante** | Cadastro básico de cartas |
-| `nivel_aventureiro.c` | `nivel_aventureiro.exe` | **Intermediário** | + Cálculos automáticos |
-| `nivel_mestre.c` | `nivel_mestre.exe` | **Avançado** | + Sistema completo de batalha |
+### Estrutura Básica do Programa
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
-### 🚀 Executáveis Prontos
-- ✅ **Windows**: Arquivos `.exe` prontos para usar (sem necessidade de compilação)
-- 📁 **Código Fonte**: Arquivos `.c` disponíveis para estudo e modificação
-- � **Multiplataforma**: Código C compatível com Linux, macOS e Windows
+int main() {
+    // Declaração de variáveis
+    int numero_inteiro;
+    float numero_decimal;
+    char caractere;
+    char string[50];
+    
+    // Entrada de dados
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero_inteiro);
+    
+    printf("Digite um número decimal: ");
+    scanf("%f", &numero_decimal);
+    
+    // Processamento
+    float resultado = numero_inteiro * numero_decimal;
+    
+    // Saída
+    printf("Resultado: %.2f\n", resultado);
+    
+    return 0;
+}
+```
 
-### Funcionalidades Principais
+### Aplicação Completa: Sistema de Cadastro
+```c
+typedef struct {
+    char estado[3];
+    char codigo[4];
+    char nome[50];
+    unsigned long populacao;
+    float area;
+    float pib;
+    int pontos_turisticos;
+    float densidade_populacional;
+    float pib_per_capita;
+} Carta;
 
-✅ **Entrada de Dados Robusta**: Suporte a populações grandes com `unsigned long int`  
-✅ **Cálculos Matemáticos**: Densidade populacional e PIB per capita calculados automaticamente  
-✅ **Sistema de Batalha**: Comparação em 7 diferentes atributos  
-✅ **Super Poder**: Fórmula especial que considera qualidade de vida (densidade inversa)  
-✅ **Interface Clara**: Exibição organizada dos dados e resultados das comparações
+void cadastrar_carta(Carta* carta) {
+    printf("Estado (sigla): ");
+    scanf("%2s", carta->estado);
+    
+    printf("Código da carta: ");
+    scanf("%3s", carta->codigo);
+    
+    printf("Nome da cidade: ");
+    scanf("%49s", carta->nome);
+    
+    printf("População: ");
+    scanf("%lu", &carta->populacao);
+    
+    printf("Área (km²): ");
+    scanf("%f", &carta->area);
+    
+    printf("PIB (bilhões): ");
+    scanf("%f", &carta->pib);
+    
+    printf("Pontos turísticos: ");
+    scanf("%d", &carta->pontos_turisticos);
+    
+    // Cálculos automáticos
+    carta->densidade_populacional = carta->populacao / carta->area;
+    carta->pib_per_capita = (carta->pib * 1000000000) / carta->populacao;
+}
+```
 
-## 🎮 Como Jogar
+## Conceitos Técnicos Detalhados
+
+### 1. Tipos de Dados e Tamanhos
+```c
+// Verificação de tamanhos em bytes
+printf("Tamanho de int: %zu bytes\n", sizeof(int));
+printf("Tamanho de float: %zu bytes\n", sizeof(float));
+printf("Tamanho de double: %zu bytes\n", sizeof(double));
+printf("Tamanho de char: %zu bytes\n", sizeof(char));
+printf("Tamanho de unsigned long: %zu bytes\n", sizeof(unsigned long));
+
+// Ranges típicos
+// int: -2,147,483,648 a 2,147,483,647
+// unsigned int: 0 a 4,294,967,295
+// float: ~6-7 dígitos de precisão
+// double: ~15-16 dígitos de precisão
+```
+
+### 2. Especificadores de Formato
+```c
+int idade = 25;
+float altura = 1.75f;
+double salario = 5500.50;
+char inicial = 'J';
+char nome[] = "João";
+unsigned long populacao = 12325000UL;
+
+printf("Idade: %d anos\n", idade);
+printf("Altura: %.2f metros\n", altura);
+printf("Salário: R$ %.2lf\n", salario);
+printf("Inicial: %c\n", inicial);
+printf("Nome: %s\n", nome);
+printf("População: %lu habitantes\n", populacao);
+```
+
+### 3. Operadores Aritméticos Avançados
+```c
+// Operações básicas
+int a = 10, b = 3;
+printf("Soma: %d + %d = %d\n", a, b, a + b);
+printf("Subtração: %d - %d = %d\n", a, b, a - b);
+printf("Multiplicação: %d * %d = %d\n", a, b, a * b);
+printf("Divisão inteira: %d / %d = %d\n", a, b, a / b);
+printf("Resto da divisão: %d %% %d = %d\n", a, b, a % b);
+
+// Divisão com decimais
+float resultado = (float)a / b;
+printf("Divisão decimal: %.2f\n", resultado);
+
+// Operadores de atribuição
+a += 5;  // equivale a: a = a + 5
+b *= 2;  // equivale a: b = b * 2
+```
+
+### 4. Conversões de Tipo (Type Casting)
+```c
+// Conversão implícita
+int inteiro = 10;
+float decimal = inteiro;  // int para float (automática)
+
+// Conversão explícita
+float valor = 3.14159f;
+int parte_inteira = (int)valor;  // float para int (explícita)
+
+// Conversão para cálculos
+int numerador = 7, denominador = 3;
+float resultado = (float)numerador / denominador;  // 2.33 ao invés de 2
+```
+
+### 5. Validação de Entrada
+```c
+int validar_entrada_inteira() {
+    int valor;
+    int resultado;
+    
+    do {
+        printf("Digite um número inteiro: ");
+        resultado = scanf("%d", &valor);
+        
+        if (resultado != 1) {
+            printf("Entrada inválida! Digite apenas números.\n");
+            // Limpar buffer de entrada
+            while (getchar() != '\n');
+        }
+    } while (resultado != 1);
+    
+    return valor;
+}
+
+float validar_entrada_decimal() {
+    float valor;
+    int resultado;
+    
+    do {
+        printf("Digite um número decimal: ");
+        resultado = scanf("%f", &valor);
+        
+        if (resultado != 1 || valor < 0) {
+            printf("Entrada inválida! Digite um número positivo.\n");
+            while (getchar() != '\n');
+        }
+    } while (resultado != 1 || valor < 0);
+    
+    return valor;
+}
+```
+
+## Aplicações Práticas
+
+### 1. Calculadora Científica Básica
+```c
+void calculadora() {
+    float num1, num2, resultado;
+    char operador;
+    
+    printf("Digite a operação (ex: 5.5 + 3.2): ");
+    scanf("%f %c %f", &num1, &operador, &num2);
+    
+    switch(operador) {
+        case '+':
+            resultado = num1 + num2;
+            break;
+        case '-':
+            resultado = num1 - num2;
+            break;
+        case '*':
+            resultado = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                resultado = num1 / num2;
+            } else {
+                printf("Erro: Divisão por zero!\n");
+                return;
+            }
+            break;
+        default:
+            printf("Operador inválido!\n");
+            return;
+    }
+    
+    printf("Resultado: %.2f %c %.2f = %.2f\n", num1, operador, num2, resultado);
+}
+```
+
+### 2. Conversor de Unidades
+```c
+void conversor_unidades() {
+    float valor, resultado;
+    int opcao;
+    
+    printf("=== CONVERSOR DE UNIDADES ===\n");
+    printf("1 - Celsius para Fahrenheit\n");
+    printf("2 - Metros para Pés\n");
+    printf("3 - Quilogramas para Libras\n");
+    printf("Escolha uma opção: ");
+    scanf("%d", &opcao);
+    
+    printf("Digite o valor: ");
+    scanf("%f", &valor);
+    
+    switch(opcao) {
+        case 1:
+            resultado = (valor * 9.0f / 5.0f) + 32.0f;
+            printf("%.2f°C = %.2f°F\n", valor, resultado);
+            break;
+        case 2:
+            resultado = valor * 3.28084f;
+            printf("%.2f metros = %.2f pés\n", valor, resultado);
+            break;
+        case 3:
+            resultado = valor * 2.20462f;
+            printf("%.2f kg = %.2f libras\n", valor, resultado);
+            break;
+        default:
+            printf("Opção inválida!\n");
+    }
+}
+```
+
+### 3. Sistema de Estatísticas
+```c
+void calcular_estatisticas() {
+    float valores[5];
+    float soma = 0.0f, media, maior, menor;
+    
+    printf("Digite 5 valores:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Valor %d: ", i + 1);
+        scanf("%f", &valores[i]);
+        soma += valores[i];
+        
+        if (i == 0) {
+            maior = menor = valores[i];
+        } else {
+            if (valores[i] > maior) maior = valores[i];
+            if (valores[i] < menor) menor = valores[i];
+        }
+    }
+    
+    media = soma / 5.0f;
+    
+    printf("\n=== ESTATÍSTICAS ===\n");
+    printf("Soma: %.2f\n", soma);
+    printf("Média: %.2f\n", media);
+    printf("Maior valor: %.2f\n", maior);
+    printf("Menor valor: %.2f\n", menor);
+    printf("Amplitude: %.2f\n", maior - menor);
+}
+```
+
+## Compilação e Execução
+
+### Comandos Básicos
+```bash
+# Compilação simples
+gcc -o programa arquivo.c
+
+# Compilação com warnings
+gcc -Wall -Wextra -o programa arquivo.c
+
+# Compilação para debug
+gcc -g -o programa arquivo.c
+
+# Execução
+./programa
+```
+
+### Verificação de Tipos e Limites
+```c
+#include <limits.h>
+#include <float.h>
+
+void exibir_limites() {
+    printf("=== LIMITES DOS TIPOS DE DADOS ===\n");
+    printf("INT_MIN: %d\n", INT_MIN);
+    printf("INT_MAX: %d\n", INT_MAX);
+    printf("UINT_MAX: %u\n", UINT_MAX);
+    printf("LONG_MIN: %ld\n", LONG_MIN);
+    printf("LONG_MAX: %ld\n", LONG_MAX);
+    printf("FLT_MIN: %e\n", FLT_MIN);
+    printf("FLT_MAX: %e\n", FLT_MAX);
+    printf("DBL_MIN: %e\n", DBL_MIN);
+    printf("DBL_MAX: %e\n", DBL_MAX);
+}
+```
+
+## Boas Práticas Implementadas
+
+### Nomenclatura de Variáveis
+```c
+// ✅ Correto: nomes descritivos
+int idade_usuario;
+float salario_mensal;
+char nome_completo[100];
+unsigned long populacao_cidade;
+
+// ❌ Evitar: nomes genéricos
+int x, y, z;
+float a, b, c;
+char str[100];
+```
+
+### Inicialização de Variáveis
+```c
+// ✅ Sempre inicializar
+int contador = 0;
+float percentual = 0.0f;
+char buffer[50] = {0};
+
+// ✅ Inicialização múltipla
+int a = 1, b = 2, c = 3;
+float x = 0.0f, y = 0.0f;
+```
+
+### Formatação de Saída
+```c
+// Alinhamento e precisão
+printf("Nome: %-20s | Idade: %3d | Salário: R$ %8.2f\n", 
+       nome, idade, salario);
+
+// Separadores visuais
+printf("=" "%.50s" "=\n", "==================================================");
+printf("| %-20s | %10s | %12s |\n", "Campo", "Valor", "Unidade");
+printf("=" "%.50s" "=\n", "==================================================");
+```
+
+## Exercícios de Fixação
+
+### Exercícios Básicos
+1. Implementar conversor de moedas com 3 moedas diferentes
+2. Criar calculadora de IMC com classificação
+3. Desenvolver sistema de notas com média aritmética
+4. Programar conversor de tempo (segundos para h:m:s)
+
+### Exercícios Intermediários
+1. Sistema de cadastro de produtos com preço total
+2. Calculadora de juros simples e compostos
+3. Conversor de bases numéricas (decimal, binário, hexadecimal)
+4. Sistema de pontuação de jogos com ranking
+
+### Exercícios Avançados
+1. Simulador de financiamento com diferentes taxas
+2. Sistema de análise estatística básica
+3. Calculadora científica com operações complexas
+4. Conversor universal de unidades (múltiplas categorias)
+
+## Preparação para Temas Avançados
+
+### Conceitos Estabelecidos
+- **Manipulação básica** de tipos de dados
+- **Operações aritméticas** e lógicas
+- **Entrada e saída** formatada
+- **Validação básica** de dados
+
+### Preparação para Próximos Temas
+- **Tema 3**: Estruturas de decisão utilizarão os operadores relacionais
+- **Tema 4**: Estruturas de repetição trabalharão com contadores e acumuladores
+- **Tema 5**: Arrays utilizarão índices numéricos e operações em massa
+- **Temas avançados**: Ponteiros, estruturas e manipulação de memória
+
+## Aplicações Profissionais
+
+### Cenários Empresariais
+- **Sistemas de folha de pagamento** com cálculos automáticos
+- **Conversores de unidades** para indústria
+- **Calculadoras financeiras** para bancos
+- **Sistemas de medição** para engenharia
+
+### Preparação para Desenvolvimento
+- **Validação de dados** em formulários web
+- **Cálculos matemáticos** em aplicações científicas
+- **Processamento numérico** em sistemas embarcados
+- **Manipulação de dados** em bancos de dados
+
+---
+
+## Informações do Projeto
+
+**Autor:** Guilher Martinez  
+**Curso:** ADA Tech - Estácio  
+**Tema:** 2 - Variáveis, Tipos de Dados e Operadores em C  
+**Data:** Setembro 2025  
+**Versão:** 1.0  
+
+Este tema estabelece os fundamentos essenciais da programação em C, fornecendo a base sólida necessária para todos os conceitos avançados que serão abordados nos temas subsequentes do curso.
 
 ### 📊 Atributos das Cartas
 Cada carta representa uma cidade brasileira com os seguintes dados:
@@ -308,49 +738,3 @@ float superPoder = população + area + pib + pontos + (1/densidade) + pibPerCap
 - **Compilador**: GCC ou compatível
 - **Bibliotecas**: `stdio.h` (entrada/saída padrão)
 - **Plataformas**: Windows, Linux, macOS, WSL
-
-## 🏆 Objetivos Educacionais
-
-### 🎯 **Habilidades Desenvolvidas**
-- **Programação em C**: Manipulação de diferentes tipos de dados
-- **Entrada/Saída**: Uso eficiente do `scanf` e `printf`
-- **Cálculos Matemáticos**: Operações aritméticas e conversões de tipo
-- **Lógica Condicional**: Comparações e operadores relacionais
-- **Estrutura de Programa**: Organização de código e fluxo lógico
-
-### 📚 **Conceitos Matemáticos Aplicados**
-- **Densidade Populacional**: Geografia e urbanização
-- **PIB per Capita**: Economia e indicadores sociais
-- **Análise Comparativa**: Estatística descritiva
-- **Fórmulas Compostas**: Criação de índices (Super Poder)
-
-### 🔬 **Aspectos Técnicos de C**
-- **Gestão de Memória**: Arrays de caracteres e strings
-- **Tipos de Dados**: Escolha adequada para cada variável
-- **Casting**: Conversão segura entre tipos numéricos
-- **Formatação**: Controle de precisão na saída de dados
-
-## � Uso Acadêmico
-
-### 👨‍🏫 **Para Professores**
-- **Exercício progressivo** em disciplinas de programação
-- **Demonstração prática** de conceitos matemáticos e geográficos
-- **Exemplo real** de aplicação de programação em problemas cotidianos
-- **Base para expansões** (adicionar mais cidades, novos atributos)
-
-### 👨‍🎓 **Para Estudantes**
-- **Projeto completo** que combina múltiplos conceitos
-- **Código bem documentado** para análise e aprendizado
-- **Possibilidade de modificação** para experimentação
-- **Resultados visuais** que facilitam o entendimento
-
-## 👨‍💻 Informações do Projeto
-
-**Desenvolvido por**: Curso ADA Tech - Estácio  
-**Disciplina**: Tema 2 - Programação em C  
-**Arquivo principal**: `super_trunfo.c`  
-**Licença**: Uso educacional e acadêmico  
-
----
-
-> 🌟 **Dica Final**: Este programa é mais que um jogo - é uma ferramenta educacional que demonstra como a programação pode ser usada para analisar e comparar dados do mundo real de forma interativa e divertida!

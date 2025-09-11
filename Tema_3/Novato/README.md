@@ -1,108 +1,318 @@
-# Super Trunfo - Nível Novato 🎮
+# Estruturas de Decisão Básicas - Nível Novato
 
-Este projeto implementa o **Nível Novato** do desafio Super Trunfo, focando na comparação entre duas cartas de cidades brasileiras usando estruturas de decisão `if` e `if-else`.
+## Descrição do Projeto
 
-## 📋 Sobre o Desafio
+Este programa implementa os conceitos fundamentais de estruturas de decisão em linguagem C, focando no uso básico de condicionais IF-ELSE e operadores relacionais. O objetivo é estabelecer uma base sólida para a lógica de programação e tomada de decisões algorítmicas.
 
-O **Nível Novato** é uma evolução do cadastro básico de cartas, adicionando a funcionalidade de **comparação e determinação do vencedor** baseada em um atributo específico.
+## Objetivos Educacionais
 
-### 🎯 Objetivo Principal
-Implementar a lógica de comparação entre duas cartas do Super Trunfo, determinando qual carta vence com base em um único atributo numérico escolhido.
+- Compreender a sintaxe básica do IF-ELSE
+- Aplicar operadores relacionais (==, !=, <, >, <=, >=)
+- Implementar validação simples de entrada
+- Desenvolver lógica sequencial de decisões
+- Praticar formatação e apresentação de resultados
 
-## 🚀 Funcionalidades
+## Especificações Técnicas
 
-### ✅ **Funcionalidades Implementadas:**
-- 📝 **Cadastro de duas cartas** com todos os atributos obrigatórios
-- 🧮 **Cálculos automáticos** de densidade populacional e PIB per capita
-- ⚔️ **Sistema de comparação** usando estruturas condicionais
-- 🏆 **Determinação do vencedor** com exibição clara do resultado
-- 📊 **Informações adicionais** para análise complementar
+### Funcionalidades Implementadas
+- **Classificação de números** (positivo, negativo, zero)
+- **Comparação de valores** entre dois números
+- **Validação de intervalo** (número dentro de faixa específica)
+- **Categorização simples** baseada em critérios únicos
 
-### 📊 **Atributos de Cada Carta:**
-| Atributo | Tipo | Exemplo | Descrição |
-|----------|------|---------|-----------|
-| Estado | `char[3]` | "SP", "RJ" | Sigla do estado |
-| Código | `char[4]` | "A01", "B02" | Código da carta |
-| Nome | `char[50]` | "SaoPaulo" | Nome da cidade |
-| População | `int` | 12325000 | Número de habitantes |
-| Área | `float` | 1521.11 | Área em km² |
-| PIB | `float` | 699.28 | PIB em bilhões |
-| Pontos Turísticos | `int` | 50 | Quantidade de atrações |
+### Estruturas de Decisão Utilizadas
+- **IF simples** para validações básicas
+- **IF-ELSE** para decisões binárias
+- **IF-ELSE-IF** para múltiplas categorias
+- **Condições compostas** com operadores lógicos básicos
 
-### 🧮 **Cálculos Automáticos:**
-- **Densidade Populacional**: `População ÷ Área` (hab/km²)
-- **PIB per Capita**: `PIB ÷ População` (bilhões per capita)
+## Implementação Detalhada
 
-## ⚔️ Sistema de Comparação
-
-### 🎯 **Atributo Escolhido: POPULAÇÃO**
-No nível novato, a comparação é feita baseada na **população** das cidades:
-- **Critério**: A carta com **maior população** vence
-- **Lógica**: Usa estruturas `if-else` para determinar o vencedor
-
-### 🏆 **Regras de Vitória:**
+### 1. Estrutura IF Simples
 ```c
-if (populacao1 > populacao2) {
-    // Carta 1 vence
-} else if (populacao2 > populacao1) {
-    // Carta 2 vence  
+// Validação básica de entrada
+if (numero > 0) {
+    printf("Número é positivo\n");
+}
+```
+
+### 2. Estrutura IF-ELSE
+```c
+// Decisão binária
+if (numero % 2 == 0) {
+    printf("Número é par\n");
 } else {
-    // Empate
+    printf("Número é ímpar\n");
 }
 ```
 
 ### 📊 **Outras Comparações (Informativas):**
-- **Densidade Populacional**: Menor valor = melhor qualidade de vida
-- **PIB per Capita**: Maior valor = maior renda individual
+```
 
-## 🚀 Como Usar
+### 3. Estrutura IF-ELSE-IF
+```c
+// Múltiplas categorias
+if (numero > 0) {
+    printf("Número positivo\n");
+} else if (numero < 0) {
+    printf("Número negativo\n");
+} else {
+    printf("Número é zero\n");
+}
+```
 
-### ⚙️ **Pré-requisitos:**
-- Compilador GCC instalado
-- Terminal/Prompt de comando
+### 4. Condições Compostas
+```c
+// Validação de intervalo
+if (numero >= 1 && numero <= 100) {
+    printf("Número está no intervalo válido\n");
+} else {
+    printf("Número fora do intervalo\n");
+}
+```
 
-### 📦 **Compilação:**
+## Operadores Relacionais Aplicados
+
+### Operadores Básicos
+- **==** (igual a): Comparação de igualdade
+- **!=** (diferente de): Comparação de desigualdade
+- **<** (menor que): Comparação de magnitude
+- **>** (maior que): Comparação de magnitude
+- **<=** (menor ou igual): Comparação inclusiva
+- **>=** (maior ou igual): Comparação inclusiva
+
+### Operadores Lógicos
+- **&&** (E lógico): Ambas condições verdadeiras
+- **||** (OU lógico): Pelo menos uma condição verdadeira
+- **!** (NÃO lógico): Negação da condição
+
+## Fluxo de Execução
+
+### Sequência do Programa
+1. **Apresentação** do programa ao usuário
+2. **Solicitação de entrada** com prompt claro
+3. **Leitura de dados** com validação básica
+4. **Processamento** através de estruturas de decisão
+5. **Apresentação de resultados** formatados
+6. **Finalização** do programa
+
+### Algoritmo Principal
+```
+INÍCIO
+    EXIBIR mensagem de boas-vindas
+    SOLICITAR entrada do usuário
+    LER valor inserido
+    
+    SE valor > 0 ENTÃO
+        EXIBIR "Número positivo"
+    SENÃO SE valor < 0 ENTÃO
+        EXIBIR "Número negativo"
+    SENÃO
+        EXIBIR "Número é zero"
+    FIM SE
+    
+    EXIBIR mensagem de encerramento
+FIM
+```
+
+## Estrutura do Código
+
+### Organização Básica
+```c
+#include <stdio.h>
+
+int main() {
+    // Declaração de variáveis
+    int numero;
+    
+    // Apresentação do programa
+    printf("=== CLASSIFICADOR DE NÚMEROS ===\n");
+    
+    // Entrada de dados
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+    
+    // Estruturas de decisão
+    if (numero > 0) {
+        printf("O número %d é POSITIVO\n", numero);
+    } else if (numero < 0) {
+        printf("O número %d é NEGATIVO\n", numero);
+    } else {
+        printf("O número é ZERO\n");
+    }
+    
+    // Finalização
+    printf("Programa finalizado.\n");
+    return 0;
+}
+```
+
+## Casos de Teste Fundamentais
+
+### Entrada e Saída Esperada
+
+#### Teste 1 - Número Positivo
+```
+Entrada: 15
+Saída: O número 15 é POSITIVO
+```
+
+#### Teste 2 - Número Negativo
+```
+Entrada: -8
+Saída: O número -8 é NEGATIVO
+```
+
+#### Teste 3 - Zero
+```
+Entrada: 0
+Saída: O número é ZERO
+```
+
+#### Teste 4 - Validação de Intervalo
+```
+Entrada: 50 (para intervalo 1-100)
+Saída: O número 50 está no intervalo válido
+```
+
+## Conceitos Fundamentais Aplicados
+
+### Lógica Booleana
+- **Verdadeiro (1)** e **Falso (0)** em C
+- **Avaliação de expressões** relacionais
+- **Combinação de condições** com operadores lógicos
+- **Precedência de operadores** em expressões compostas
+
+### Controle de Fluxo
+- **Execução condicional** de blocos de código
+- **Fluxo sequencial** versus **fluxo condicional**
+- **Aninhamento básico** de estruturas
+- **Legibilidade** através de indentação adequada
+
+### Validação de Dados
+- **Verificação de tipos** durante entrada
+- **Validação de intervalos** numéricos
+- **Tratamento de casos especiais** (zero, extremos)
+- **Feedback informativo** ao usuário
+
+## Compilação e Execução
+
+### Comando de Compilação
 ```bash
-# Windows
-gcc nivel_novato.c -o nivel_novato.exe
-
-# Linux/macOS
-gcc nivel_novato.c -o nivel_novato
-
-# WSL
-wsl gcc nivel_novato.c -o nivel_novato
+gcc -o decisao_basica decisao_basica.c
 ```
 
-### ▶️ **Execução:**
+### Execução do Programa
 ```bash
-# Windows
-nivel_novato.exe
-
-# Linux/macOS
-./nivel_novato
-
-# WSL
-wsl ./nivel_novato
+./decisao_basica
 ```
 
-### 🎮 **Fluxo de Uso:**
-1. **Execute o programa**
-2. **Cadastre a Carta 1**: Digite os dados da primeira cidade
-3. **Cadastre a Carta 2**: Digite os dados da segunda cidade
-4. **Veja os dados**: O programa exibe todas as informações cadastradas
-5. **Resultado da comparação**: Descubra qual carta venceu na população
-6. **Informações extras**: Analise densidade populacional e PIB per capita
-
-## 💡 Exemplo Prático
-
-### 📝 **Entrada de Dados:**
+### Compilação com Flags de Debug
+```bash
+gcc -g -Wall -Wextra -o decisao_basica decisao_basica.c
 ```
-=== Cadastro da Carta 1 ===
-Estado (ex: SP, RJ, MG): SP
-Código da carta (ex: A01): A01
-Nome da cidade: SaoPaulo
-População: 12325000
-Área (km²): 1521.11
+
+## Boas Práticas Implementadas
+
+### Formatação de Código
+- **Indentação consistente** (4 espaços ou 1 tab)
+- **Espaçamento adequado** entre operadores
+- **Quebras de linha** para melhor legibilidade
+- **Comentários explicativos** em pontos-chave
+
+### Nomenclatura Clara
+- **Variáveis descritivas** (numero, resultado, opcao)
+- **Constantes em maiúsculas** quando aplicável
+- **Funções com verbos** para indicar ação
+- **Consistência de estilo** em todo o código
+
+### Estrutura Organizacional
+- **Declarações no início** da função
+- **Lógica agrupada** por funcionalidade
+- **Saída formatada** e informativa
+- **Finalização explícita** do programa
+
+## Preparação para Níveis Avançados
+
+### Conceitos Base Estabelecidos
+- **Sintaxe fundamental** das estruturas condicionais
+- **Operadores relacionais** e sua aplicação
+- **Lógica sequencial** de tomada de decisões
+- **Validação básica** de entrada de dados
+
+### Próximos Desenvolvimentos
+- **Aninhamento complexo** de estruturas (Aventureiro)
+- **Múltiplas condições** simultâneas (Aventureiro)
+- **Otimização com SWITCH-CASE** (Aventureiro)
+- **Operador ternário** para concisão (Mestre)
+
+## Exercícios de Fixação
+
+### Exercícios Básicos
+1. Implementar classificação de idade (criança, adolescente, adulto)
+2. Criar validador de nota escolar (0-10, aprovado/reprovado)
+3. Desenvolver calculadora de IMC com categorização
+4. Programar sistema de desconto baseado em valor de compra
+
+### Desafios de Extensão
+1. Adicionar validação de entrada para caracteres inválidos
+2. Implementar múltiplas classificações simultâneas
+3. Criar menu simples com opções de escolha
+4. Desenvolver sistema de login básico
+
+## Depuração e Solução de Problemas
+
+### Erros Comuns
+- **Sintaxe incorreta** em condições (= ao invés de ==)
+- **Ausência de chaves** em blocos de código
+- **Lógica invertida** em condições
+- **Tipos incompatíveis** em comparações
+
+### Técnicas de Debug
+- **Compilação com warnings** habilitados (-Wall)
+- **Impressão de valores** intermediários
+- **Teste com casos extremos** (zero, negativos, limites)
+- **Verificação manual** da lógica implementada
+
+## Aplicações Práticas
+
+### Cenários Reais
+- **Sistemas de autenticação** simples
+- **Calculadoras com validação** de entrada
+- **Jogos básicos** com decisões simples
+- **Sistemas de classificação** automática
+
+### Extensões Possíveis
+- **Interface mais elaborada** com menus
+- **Persistência de dados** em arquivos
+- **Múltiplas operações** em sequência
+- **Integração com outros temas** do curso
+
+## Recursos de Aprendizagem
+
+### Documentação Adicional
+- Comentários detalhados no código fonte
+- Exemplos de entrada e saída esperada
+- Explicação passo a passo da lógica
+- Referências para estudo complementar
+
+### Suporte ao Desenvolvimento
+- Código bem estruturado como modelo
+- Casos de teste pré-definidos
+- Sugestões de melhorias incrementais
+- Conexões com conceitos futuros
+
+---
+
+## Informações do Arquivo
+
+**Nome do Arquivo:** decisao_basica.c  
+**Nível:** Novato  
+**Tema:** 3 - Estruturas de Decisão em C  
+**Autor:** Guilher Martinez  
+**Data:** Setembro 2025  
+
+Este programa estabelece os fundamentos necessários para compreensão e aplicação de estruturas de decisão, preparando o estudante para implementações mais complexas nos níveis subsequentes.
 PIB (em bilhões de reais): 699.28
 Número de pontos turísticos: 50
 
